@@ -1,0 +1,233 @@
+
+body {
+  font-family: Times, serif;
+  background-image: url(bg.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+body:before {
+	content: "";
+	display: block;
+	position: fixed;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	background-color: white;
+	opacity: 0.7;
+	z-index: -1;
+}
+
+/* расположение */
+
+header {
+  box-sizing:border-box;
+  width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  background-color: rgba(0,0,255,0.3);
+
+  padding: 10px;
+  border-radius: 10px;
+  border: solid 2px grey;
+}
+
+header h1 {
+	font-size: xx-large;
+	color: white;
+	text-align: center;
+	text-shadow: 2px 2px 5px blue;
+}
+
+header h2 {
+	font-size: x-large;
+	color: white;
+	text-align: center;
+	text-shadow: 2px 2px 5px blue;
+}
+
+main {
+  width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  counter-reset: qn;
+}
+
+footer {
+  box-sizing:border-box;
+  width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: lightyellow;
+  padding: 10px;
+  border-radius: 10px;
+  border: solid 2px grey;
+}
+
+section {
+  counter-increment: qn;
+}
+
+/* вопрос целиком */
+
+.question-block {
+  display:none;
+  padding: 10px;
+  border: solid 2px gray;
+  border-radius: 10px;
+  margin-bottom: 1em;
+  
+  background-color: lightyellow;
+}
+
+.q-ok {
+  border-color: green;
+}
+
+.q-err {
+  border-color: red;
+}
+
+.ok {
+  color: green;
+}
+
+.err {
+  color: red;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+label {
+  display: block;
+}
+
+tr.answer:hover {
+  background-color: yellow;
+  outline: solid black 1px;
+}
+
+td {
+  vertical-align: top;
+}
+
+td.question {
+  font-weight: bold;
+}
+
+td.question::before {
+	display: inline;
+	content: counter(qn) ". ";
+	color: darkred;
+}
+
+img {
+	max-width: 100%;
+}
+
+td:last-child {
+  width: 100%;
+}
+
+td:only-child {
+  padding-bottom: 1em;
+}
+
+figure {
+  margin-top: 0;
+  margin-bottom: 0;
+  background-color: white;
+  border: solid 1px grey;
+  border-radius: 5px;
+  text-align: center;
+}
+
+figcaption {
+  font-weight: normal;
+  font-style: italic;
+}
+
+
+
+.general-button {
+  background-repeat: no-repeat;
+  background-position: 2px center;
+  background-size: 16px;
+  padding: 2px;
+  padding-left: 25px;
+  border: solid 2px gray;
+  border-radius: 5px;
+}
+
+.general-button:hover {
+  border-color: green;
+}
+
+.general-button:active {
+  padding-top: 3px;
+  padding-bottom: 1px;
+  border-color: red;
+  box-shadow: inset 2px 2px 2px grey;
+/*  border-style: inset;*/
+}
+
+.general-button:disabled {
+  border-color: grey;
+}
+
+.check-button {
+  background-image: url(check.png);
+}
+
+.print-button {
+  float: right;
+  background-image: url(printer.png);
+}
+
+.repeat-button {
+  background-image: url(repeat.png);
+}
+
+/* Для узких экранов */
+@media all and (max-width: 700px) {
+	header, main, footer {
+	  width: 100%;
+      margin: 0;
+	}
+}
+
+
+/* Печать */
+@media print {
+
+  header, main, footer {
+    width: 100%;
+    margin: 0;
+	background-color: transparent;
+	border: none;
+  }
+  
+  header h1, header h2 {
+	  color: black;
+	  text-shadow: none;
+  }
+  
+  footer button {
+	  display: none;
+  }
+  
+  .question-block {
+    background-color: transparent;
+	page-break-inside: avoid;
+	border-style: solid none none none;
+	border-radius: 0;
+  }
+  
+}

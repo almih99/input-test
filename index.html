@@ -1,0 +1,1644 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Михайленко Алексей" >
+<title>Входной первичный тест ЭСТОП</title>
+<link href="files/main.css" rel="stylesheet" type="text/css">
+<script src="files/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+<!--
+
+function generateTest() {
+  $('section').each( function(i,e) {
+    var ql = $(this).find('article');
+	ql.eq(Math.floor(Math.random() * ql.length) + 0).show();
+  }); // $('section').each
+  $(document).scrollTop($('html').offset().top);
+}
+
+function initialize() {
+  $('input[type="radio"]')
+    .prop('disabled', false)
+	.prop('checked', false)
+	.closest('tr')
+	  .removeClass('ok')
+	  .removeClass('err');
+  $('article')
+    .removeClass('q-ok')
+	.removeClass('q-err')
+	.hide();
+  $('#check-button')
+    .prop('disabled', false);
+  $('#resaults').hide();
+}
+
+function freeze() {
+  $('input[type="radio"]').prop('disabled', true);
+  $('#check-button').prop('disabled', true);
+}
+
+function checkTest() {
+  $('article:visible').each( function(i,atcl) {
+    $(this)
+	  .find('input[type="radio"]').each(function(j, inp){
+	    if(Number(this.getAttribute('data-is-correct')))
+		{
+		  // пометить вариант ответа зеленым
+		  $(this).closest('tr').addClass('ok');
+		  
+		  if($(this).prop('checked')) {
+		    // пометить вопрос как правильно отвеченный
+			$(atcl)
+		      .removeClass('q-err')
+			  .addClass('q-ok');
+		  } else {
+		    // пометить вопрос как неправильно отвеченный
+			$(atcl)
+		      .removeClass('q-ok')
+			  .addClass('q-err');
+		  }
+		} 
+		else {
+		  if($(this).prop('checked')) {
+		    // пометить вариант ответа красным
+		    $(this).closest('tr').addClass('err');
+			// пометить вопрос как неправильно отмеченный
+			$(atcl)
+		      .removeClass('q-ok')
+			  .addClass('q-err');
+		  }
+		}
+	  }); // $(this).find('input[type="radio"]').each
+  }); // $('aricle:visible').each
+  $('#resaults').show();
+  var total = $('article:visible').length;
+  var correct = $('article.q-ok').length;
+  $('#resault-number').html(Math.round(correct*100/total));
+  freeze();
+  $(document).scrollTop($('footer').offset().top);
+}
+
+$( document ).ready(function() {
+    initialize();
+	generateTest();
+	$('#check-button').click(checkTest);
+	$('#repeat-button').click(function() {
+	  initialize();
+	  generateTest();
+	}); // $('#repeat-button').click
+	$('#print-button').click( function(){window.print();});
+}); // $(document).ready
+
+// -->
+</script>
+</head>
+<body onunload="return false">
+<header>
+  <headgroup>
+    <h1>ОАО Noname</h1>
+    <h2>Входной первичный тест</h2>
+  </headgroup>
+</header>
+<main>
+
+<section>
+<!-- Вопрос 1. Параметры синусоидального тока. С каждой section задается один вопрос -->
+<article class="question-block">
+  <!-- Вопрос 1.1. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        На графике синусоидального напряжения 
+        <figure><img src="files/sin.svg"><figcaption>Синусоидальное напряжение</figcaption></figure>
+        покажите величину, соответствующую амплитудному значению напряжения:
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q1.1" id="q1.1-1" value="1" data-is-correct="1"></td>
+      <td><label for="q1.1-1">Амплитудному значению соответствует U1;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q1.1" id="q1.1-2" value="2" data-is-correct="0"></td>
+      <td><label for="q1.1-2">Амплитудному значению соответствует U2;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q1.1" id="q1.1-3" value="3" data-is-correct="0"></td>
+      <td><label for="q1.1-3">Амплитудному значению соответствует U3;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q1.1" id="q1.1-4" value="4" data-is-correct="0"></td>
+      <td><label for="q1.1-4">Амплитудному значению соответствует U4.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 1.2. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        На графике синусоидального напряжения 
+        <figure><img src="files/sin.svg"><figcaption>Синусоидальное напряжение</figcaption></figure>
+        покажите величину, соответствующую размаху напряжения:
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q1.2" id="q1.2-1" value="1" data-is-correct="0"></td>
+      <td><label for="q1.2-1">Размаху соответствует U1;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q1.2" id="q1.2-2" value="2" data-is-correct="1"></td>
+      <td><label for="q1.2-2">Размаху соответствует U2;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q1.2" id="q1.2-3" value="3" data-is-correct="0"></td>
+      <td><label for="q1.2-3">Размаху соответствует U3;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q1.2" id="q1.2-4" value="4" data-is-correct="0"></td>
+      <td><label for="q1.2-4">Размаху соответствует U4.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 1.3. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        На графике синусоидального напряжения 
+        <figure><img src="files/sin.svg"><figcaption>Синусоидальное напряжение</figcaption></figure>
+        покажите величину, соответствующую действующему значению напряжения:
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q1.3" id="q1.3-1" value="1" data-is-correct="0"></td>
+      <td><label for="q1.3-1">Действующему значению соответствует U1;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q1.3" id="q1.3-2" value="2" data-is-correct="0"></td>
+      <td><label for="q1.3-2">Действующему значению соответствует U2;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q1.3" id="q1.3-3" value="3" data-is-correct="1"></td>
+      <td><label for="q1.3-3">Действующему значению соответствует U3;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q1.3" id="q1.3-4" value="4" data-is-correct="0"></td>
+      <td><label for="q1.3-4">Действующему значению соответствует U4.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 1.4. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Действующее значение синусоидального напряжения равно 220 В. Какова величина амплитудного значения напряжения?
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q1.4" id="q1.4-1" value="1" data-is-correct="0"></td>
+      <td><label for="q1.4-1">127 В;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q1.4" id="q1.4-2" value="2" data-is-correct="0"></td>
+      <td><label for="q1.4-2">156 В;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q1.4" id="q1.4-3" value="3" data-is-correct="1"></td>
+      <td><label for="q1.4-3">311 В;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q1.4" id="q1.4-4" value="4" data-is-correct="0"></td>
+      <td><label for="q1.4-4">380 В.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 1.5. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Амплитудное значение синусоидального напряжения равно 100 В. Какова приблизительная величина действующего значения напряжения?
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q1.5" id="q1.5-1" value="1" data-is-correct="0"></td>
+      <td><label for="q1.5-1">50 В;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q1.5" id="q1.5-2" value="2" data-is-correct="1"></td>
+      <td><label for="q1.5-2">70 В;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q1.5" id="q1.5-3" value="3" data-is-correct="0"></td>
+      <td><label for="q1.5-3">100 В;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q1.5" id="q1.5-4" value="4" data-is-correct="0"></td>
+      <td><label for="q1.5-4">141 В.</label></td>
+    </tr>
+  </table>
+</article>
+
+<!-- Конец вопроса 1 -->
+</section>
+
+<section>
+<!-- Вопрос 2. Параметры синусоидального тока. -->
+<article class="question-block">
+  <!-- Вопрос 2.1. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Какая частота переменного тока считается промышленной в Российской Федерации?
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q2.1" id="q2.1-1" value="1" data-is-correct="0"></td>
+      <td><label for="q2.1-1">40 Гц;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q2.1" id="q2.1-2" value="2" data-is-correct="1"></td>
+      <td><label for="q2.1-2">50 Гц;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q2.1" id="q2.1-3" value="3" data-is-correct="0"></td>
+      <td><label for="q2.1-3">60 Гц;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q2.1" id="q2.1-4" value="4" data-is-correct="0"></td>
+      <td><label for="q2.1-4">100 Гц.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 2.2. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Какая из перечисленных величин относятся к характеристикам переменного тока?
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q2.2" id="q2.2-1" value="1" data-is-correct="0"></td>
+      <td><label for="q2.2-1">Сопротивление;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q2.2" id="q2.2-2" value="2" data-is-correct="0"></td>
+      <td><label for="q2.2-2">Постоянная времени;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q2.2" id="q2.2-3" value="3" data-is-correct="1"></td>
+      <td><label for="q2.2-3">Амплитуда;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q2.2" id="q2.2-4" value="4" data-is-correct="0"></td>
+      <td><label for="q2.2-4">Волновой коэффициент.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 2.3. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Какая из перечисленных величин относятся к характеристикам переменного тока?
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q2.3" id="q2.3-1" value="1" data-is-correct="1"></td>
+      <td><label for="q2.3-1">Период колебаний;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q2.3" id="q2.3-2" value="2" data-is-correct="0"></td>
+      <td><label for="q2.3-2">Постоянная времени;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q2.3" id="q2.3-3" value="3" data-is-correct="0"></td>
+      <td><label for="q2.3-3">Волновое сопротивление;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q2.3" id="q2.3-4" value="4" data-is-correct="0"></td>
+      <td><label for="q2.3-4">Коэффициент абсорбции.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 2.4. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Являются ли параметры переменного тока:<br>
+        &nbsp;&nbsp;Т – период;<br>
+        &nbsp;&nbsp;f – частота;<br>
+        &nbsp;&nbsp;ω – угловая частота<br>
+        независимыми?
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q2.4" id="q2.4-1" value="1" data-is-correct="0"></td>
+      <td><label for="q2.4-1">Являются;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q2.4" id="q2.4-2" value="2" data-is-correct="1"></td>
+      <td><label for="q2.4-2">Не являются;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q2.4" id="q2.4-3" value="3" data-is-correct="0"></td>
+      <td><label for="q2.4-3">Угловая частота не зависит от связанных между собой периода и частоты;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q2.4" id="q2.4-4" value="4" data-is-correct="0"></td>
+      <td><label for="q2.4-4">Зависит от числа пар полюсов генератора.</label></td>
+    </tr>
+  </table>
+</article>
+<!-- Конец вопроса 2 -->
+</section>
+
+<section>
+<!-- Вопрос 3. Резисторы. -->
+<article class="question-block">
+  <!-- Вопрос 3.1. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        На каких из приведенных условных графических изображений:
+        <figure><img src="files/R.svg"><figcaption>Условные графические изображения</figcaption></figure>
+        изображены резисторы?
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q3.1" id="q3.1-1" value="1" data-is-correct="0"></td>
+      <td><label for="q3.1-1">Только на изображении А;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q3.1" id="q3.1-2" value="2" data-is-correct="1"></td>
+      <td><label for="q3.1-2">На изображениях А и Г;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q3.1" id="q3.1-3" value="3" data-is-correct="0"></td>
+      <td><label for="q3.1-3">На изображениях Б и Г;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q3.1" id="q3.1-4" value="4" data-is-correct="0"></td>
+      <td><label for="q3.1-4">На всех приведенных изображениях.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 3.2. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Найдите сопротивление между точками А и Б приведенной схемы:
+        <figure><img src="files/R-par.svg"><figcaption>Схема соединения</figcaption></figure>
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q3.2" id="q3.2-1" value="1" data-is-correct="1"></td>
+      <td><label for="q3.2-1">Приблизительно 0,9 кОм;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q3.2" id="q3.2-2" value="2" data-is-correct="0"></td>
+      <td><label for="q3.2-2">Приблизительно 1,1 кОм;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q3.2" id="q3.2-3" value="3" data-is-correct="0"></td>
+      <td><label for="q3.2-3">5,5 кОм;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q3.2" id="q3.2-4" value="4" data-is-correct="0"></td>
+      <td><label for="q3.2-4">11 кОм.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 3.3. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Найдите сопротивление между точками А и Б приведенной схемы:
+        <figure><img src="files/R-seq.svg"><figcaption>Схема соединения</figcaption></figure>
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q3.3" id="q3.3-1" value="1" data-is-correct="0"></td>
+      <td><label for="q3.3-1">Приблизительно 0,9 кОм;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q3.3" id="q3.3-2" value="2" data-is-correct="0"></td>
+      <td><label for="q3.3-2">Приблизительно 1,1 кОм;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q3.3" id="q3.3-3" value="3" data-is-correct="0"></td>
+      <td><label for="q3.3-3">5,5 кОм;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q3.3" id="q3.3-4" value="4" data-is-correct="1"></td>
+      <td><label for="q3.3-4">11 кОм.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 3.4. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Найдите сопротивление между точками А и Б приведенной схемы:
+        <figure><img src="files/R-par-seq.svg"><figcaption>Схема соединения</figcaption></figure>
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q3.4" id="q3.4-1" value="1" data-is-correct="0"></td>
+      <td><label for="q3.4-1">0,5 кОм;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q3.4" id="q3.4-2" value="2" data-is-correct="0"></td>
+      <td><label for="q3.4-2">1 кОм;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q3.4" id="q3.4-3" value="3" data-is-correct="1"></td>
+      <td><label for="q3.4-3">1,5 кОм;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q3.4" id="q3.4-4" value="4" data-is-correct="0"></td>
+      <td><label for="q3.4-4">2 кОм.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 3.5. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Как соединены между собой резисторы на приведенной схеме?
+        <figure><img src="files/R-par-seq-q1.svg"><figcaption>Схема соединения</figcaption></figure>
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q3.5" id="q3.5-1" value="1" data-is-correct="1"></td>
+      <td><label for="q3.5-1">Параллельно;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q3.5" id="q3.5-2" value="2" data-is-correct="0"></td>
+      <td><label for="q3.5-2">Последовательно;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q3.5" id="q3.5-3" value="3" data-is-correct="0"></td>
+      <td><label for="q3.5-3">Смешанно;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q3.5" id="q3.5-4" value="4" data-is-correct="0"></td>
+      <td><label for="q3.5-4">На схеме недостаточно данных, чтобы определить схему соединения.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 3.6. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Как соединены между собой резисторы R1, R2, R3 на приведенной схеме?
+        <figure><img src="files/R-par-seq-q2.svg"><figcaption>Схема соединения</figcaption></figure>
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q3.6" id="q3.6-1" value="1" data-is-correct="1"></td>
+      <td><label for="q3.6-1">Параллельно;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q3.6" id="q3.6-2" value="2" data-is-correct="0"></td>
+      <td><label for="q3.6-2">Последовательно;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q3.6" id="q3.6-3" value="3" data-is-correct="0"></td>
+      <td><label for="q3.6-3">Смешанно;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q3.6" id="q3.6-4" value="4" data-is-correct="0"></td>
+      <td><label for="q3.6-4">На схеме недостаточно данных, чтобы определить схему соединения.</label></td>
+    </tr>
+  </table>
+</article>
+
+<!-- Конец вопроса 3 -->
+</section>
+
+<section>
+<!-- Вопрос 4. Основные формулы электротехники. -->
+<article class="question-block">
+  <!-- Вопрос 4.1. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Закон ома для участка цепи выражается формулой:
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q4.1" id="q4.1-1" value="1" data-is-correct="1"></td>
+      <td><label for="q4.1-1">I=U/R;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q4.1" id="q4.1-2" value="2" data-is-correct="0"></td>
+      <td><label for="q4.1-2">P=I<sup>2</sup>R;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q4.1" id="q4.1-3" value="3" data-is-correct="0"></td>
+      <td><label for="q4.1-3">R=σ·l/S;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q4.1" id="q4.1-4" value="4" data-is-correct="0"></td>
+      <td><label for="q4.1-4">Все приведенные формулы выражают закон Ома.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 4.2. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Мощность, выделяемая на нагрузке при постоянном электрическом токе определяется по формуле:
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q4.2" id="q4.2-1" value="1" data-is-correct="0"></td>
+      <td><label for="q4.2-1">P=I<sup>2</sup>R;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q4.2" id="q4.2-2" value="2" data-is-correct="0"></td>
+      <td><label for="q4.2-2">P=U<sup>2</sup>/R;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q4.2" id="q4.2-3" value="3" data-is-correct="0"></td>
+      <td><label for="q4.2-3">P=U·I;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q4.2" id="q4.2-4" value="4" data-is-correct="1"></td>
+      <td><label for="q4.2-4">Все приведенные формулы позволяют определить мощность.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 4.3. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        В формуле R=ρl/S величина ρ обозначает:
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q4.3" id="q4.3-1" value="1" data-is-correct="0"></td>
+      <td><label for="q4.3-1">Плотность электрического тока;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q4.3" id="q4.3-2" value="2" data-is-correct="0"></td>
+      <td><label for="q4.3-2">Удельную электропроводность;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q4.3" id="q4.3-3" value="3" data-is-correct="1"></td>
+      <td><label for="q4.3-3">Удельное сопротивление;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q4.3" id="q4.3-4" value="4" data-is-correct="0"></td>
+      <td><label for="q4.3-4">Диэлектрическую проницаемость среды.</label></td>
+    </tr>
+  </table>
+</article>
+
+<!-- Конец вопроса 4 -->
+</section>
+
+<section>
+<!-- Вопрос 5. Измерения. -->
+<article class="question-block">
+  <!-- Вопрос 5.1. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Шунт подключается к обмотке амперметра:
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.1" id="q5.1-1" value="1" data-is-correct="1"></td>
+      <td><label for="q5.1-1">Параллельно;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.1" id="q5.1-2" value="2" data-is-correct="0"></td>
+      <td><label for="q5.1-2">Последовательно;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.1" id="q5.1-3" value="3" data-is-correct="0"></td>
+      <td><label for="q5.1-3">Зависит от соотношения сопротивлений шунта и обмотки;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.1" id="q5.1-4" value="4" data-is-correct="0"></td>
+      <td><label for="q5.1-4">Шунт подключается только к вольтметру.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 5.2. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Добавочное сопротивление подключается к обмотке вольтметра:
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.2" id="q5.2-1" value="1" data-is-correct="0"></td>
+      <td><label for="q5.2-1">Параллельно;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.2" id="q5.2-2" value="2" data-is-correct="1"></td>
+      <td><label for="q5.2-2">Последовательно;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.2" id="q5.2-3" value="3" data-is-correct="0"></td>
+      <td><label for="q5.2-3">Зависит от соотношения сопротивлений резистора и обмотки;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.2" id="q5.2-4" value="4" data-is-correct="0"></td>
+      <td><label for="q5.2-4">Добавочное сопротивление подключается только к амперметру.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 5.3. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Вольтметр включается с нагрузкой:
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.3" id="q5.3-1" value="1" data-is-correct="1"></td>
+      <td><label for="q5.3-1">Параллельно;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.3" id="q5.3-2" value="2" data-is-correct="0"></td>
+      <td><label for="q5.3-2">Последовательно;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.3" id="q5.3-3" value="3" data-is-correct="0"></td>
+      <td><label for="q5.3-3">Зависит от типа вольтметра;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.3" id="q5.3-4" value="4" data-is-correct="0"></td>
+      <td><label for="q5.3-4">Вольтметр нельзя подключать одновременно с нагрузкой.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 5.4. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Амперметр включается с нагрузкой:
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.4" id="q5.4-1" value="1" data-is-correct="0"></td>
+      <td><label for="q5.4-1">Параллельно;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.4" id="q5.4-2" value="2" data-is-correct="1"></td>
+      <td><label for="q5.4-2">Последовательно;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.4" id="q5.4-3" value="3" data-is-correct="0"></td>
+      <td><label for="q5.4-3">Зависит от типа амперметра;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.4" id="q5.4-4" value="4" data-is-correct="0"></td>
+      <td><label for="q5.4-4">Амперметр нельзя подключать одновременно с нагрузкой.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 5.5. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Каким должно быть сопротивление вольтметра R<sub>V</sub>, чтобы он не влиял на режим работы цепи:
+		<figure><img src="files/V-R.svg"><figcaption>Схема подключения вольтметра</figcaption></figure>
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.5" id="q5.5-1" value="1" data-is-correct="0"></td>
+      <td><label for="q5.5-1">R<sub>V</sub>=0;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.5" id="q5.5-2" value="2" data-is-correct="1"></td>
+      <td><label for="q5.5-2">R<sub>V</sub>&gt;&gt;R<sub>AB</sub>;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.5" id="q5.5-3" value="3" data-is-correct="0"></td>
+      <td><label for="q5.5-3">R<sub>V</sub>≈R<sub>AB</sub>;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.5" id="q5.5-4" value="4" data-is-correct="0"></td>
+      <td><label for="q5.5-4">В приведенной схеме отсутствует R<sub>V</sub>.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 5.6. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Каким должно быть сопротивление амперметра R<sub>A</sub>, чтобы он не влиял на режим работы цепи?
+		<figure><img src="files/A-R.svg"><figcaption>Схема подключения амперметра</figcaption></figure>
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.6" id="q5.6-1" value="1" data-is-correct="0"></td>
+      <td><label for="q5.6-1">R<sub>A</sub>&gt;&gt;R1+R2;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.6" id="q5.6-2" value="2" data-is-correct="0"></td>
+      <td><label for="q5.6-2">R<sub>A</sub>≈R1+R2;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.6" id="q5.6-3" value="3" data-is-correct="1"></td>
+      <td><label for="q5.6-3">R<sub>A</sub>&lt;&lt;R1+R2;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.6" id="q5.6-4" value="4" data-is-correct="0"></td>
+      <td><label for="q5.6-4">В приведенной схеме отсутствует R<sub>A</sub>.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 5.7. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        В одинаковых схемах включены различные амперметры, причем RA1>RA2.
+		<figure><img src="files/A1vsA2.svg"><figcaption>Схемы подключения амперметра</figcaption></figure>
+		Какой из амперметров сильнее влияет на режим работы цепи?
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.7" id="q5.7-1" value="1" data-is-correct="1"></td>
+      <td><label for="q5.7-1">Сильнее влияет А1;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.7" id="q5.7-2" value="2" data-is-correct="0"></td>
+      <td><label for="q5.7-2">Сильнее влияет А2;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.7" id="q5.7-3" value="3" data-is-correct="0"></td>
+      <td><label for="q5.7-3">А1 и А2 влияют одинаково;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.7" id="q5.7-4" value="4" data-is-correct="0"></td>
+      <td><label for="q5.7-4">Ни А1 ни А2 не оказывают влияния на режим работы цепи.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 5.9. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Какой из амперметров на схеме покажет большее значение тока, если сопротивление амперметра А1 в два раза больше сопротивления амперметра А2?
+		<figure><img src="files/2A.svg"><figcaption>Схема подключения амперметров</figcaption></figure>
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.9" id="q5.9-1" value="1" data-is-correct="0"></td>
+      <td><label for="q5.9-1">Показания амперметра A1 будут вдвое больше показаний амперметра A2;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.9" id="q5.9-2" value="2" data-is-correct="0"></td>
+      <td><label for="q5.9-2">Показания амперметра A1 будут вдвое меньше показаний амперметра A2;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.9" id="q5.9-3" value="3" data-is-correct="1"></td>
+      <td><label for="q5.9-3">Показания амперметров будут равны;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.9" id="q5.9-4" value="4" data-is-correct="0"></td>
+      <td><label for="q5.9-4">Показания амперметра A2 будут больше показаний амперметра A1, на величину, зависящую от сопротивления резистора R1.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 5.10. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Какой из вольтметров на схеме покажет большее значение напряжение, если сопротивление вольтметра V1 в три раза больше сопротивления вольтметра V2?
+		<figure><img src="files/2V.svg"><figcaption>Схема подключения вольтметров</figcaption></figure>
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.10" id="q5.10-1" value="1" data-is-correct="0"></td>
+      <td><label for="q5.10-1">Показания вольтметра V1 будут втрое больше показаний вольтметра V2;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.10" id="q5.10-2" value="2" data-is-correct="0"></td>
+      <td><label for="q5.10-2">Показания вольтметра V1 будут больше показаний вольтметра V2, однако величину этой разности определить невозможно без знания сопротивления резистора R1;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.10" id="q5.10-3" value="3" data-is-correct="0"></td>
+      <td><label for="q5.10-3">Показания вольтметра V2 будут больше показаний вольтметра V1 в три раза;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.10" id="q5.10-4" value="4" data-is-correct="1"></td>
+      <td><label for="q5.10-4">Показания вольтметров будут равны.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 5.11. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Шкала амперметра имеет диапазон 0 — 50 А. Прибором измерены токи 3 А и 30 А. Какое из измеренных значений точнее?
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.11" id="q5.11-1" value="1" data-is-correct="0"></td>
+      <td><label for="q5.11-1">Так как неизвестен класс точности прибора, определить невозможно;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.11" id="q5.11-2" value="2" data-is-correct="0"></td>
+      <td><label for="q5.11-2">Точнее будет измерен ток 3 А;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.11" id="q5.11-3" value="3" data-is-correct="1"></td>
+      <td><label for="q5.11-3">Точнее будет измерен ток 30 А;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q5.11" id="q5.11-4" value="4" data-is-correct="0"></td>
+      <td><label for="q5.11-4">Точность измерений будет одинаковой.</label></td>
+    </tr>
+  </table>
+</article>
+
+<!-- Конец вопроса 5 -->
+</section>
+
+<section>
+<!-- Вопрос 6. Измерительные приборы -->
+<article class="question-block">
+  <!-- Вопрос 6.1. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Чему равна приведенная погрешность прибора, на шкале которого нанесено следующее изображение:
+        <figure><img src="files/scale.svg"><figcaption>Изображение на шкале прибора</figcaption></figure>
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q6.1" id="q6.1-1" value="1" data-is-correct="0"></td>
+      <td><label for="q6.1-1">Приведенная погрешность отсутствует;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q6.1" id="q6.1-2" value="2" data-is-correct="1"></td>
+      <td><label for="q6.1-2">Приведенная погрешность равна 1%;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q6.1" id="q6.1-3" value="3" data-is-correct="0"></td>
+      <td><label for="q6.1-3">Приведенная погрешность равна 2%;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q6.1" id="q6.1-4" value="4" data-is-correct="0"></td>
+      <td><label for="q6.1-4">Приведенная погрешность равна 2 В.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 6.2. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Шкала измерительного прибора электромагнитной системы:
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q6.2" id="q6.2-1" value="1" data-is-correct="0"></td>
+      <td><label for="q6.2-1">Линейна;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q6.2" id="q6.2-2" value="2" data-is-correct="1"></td>
+      <td><label for="q6.2-2">Нелинейна;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q6.2" id="q6.2-3" value="3" data-is-correct="0"></td>
+      <td><label for="q6.2-3">Линейность шкалы зависит от рода измеряемого тока;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q6.2" id="q6.2-4" value="4" data-is-correct="0"></td>
+      <td><label for="q6.2-4">Приборы электромагнитной системы не имеют шкалы.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 6.3. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Шкала измерительного прибора магнитоэлектрической системы:
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q6.3" id="q6.3-1" value="1" data-is-correct="1"></td>
+      <td><label for="q6.3-1">Линейна;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q6.3" id="q6.3-2" value="2" data-is-correct="0"></td>
+      <td><label for="q6.3-2">Нелинейна;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q6.3" id="q6.3-3" value="3" data-is-correct="0"></td>
+      <td><label for="q6.3-3">Линейность шкалы зависит от рода измеряемого тока;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q6.3" id="q6.3-4" value="4" data-is-correct="0"></td>
+      <td><label for="q6.3-4">Приборы магнитоэлектрической системы не имеют шкалы.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 6.4. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Нанесенный на шкале прибора знак
+		<figure><img src="files/P-system.svg"><figcaption>Изображение на шкале прибора</figcaption></figure>
+        обозначает:
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q6.4" id="q6.4-1" value="1" data-is-correct="0"></td>
+      <td><label for="q6.4-1">Амперметр;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q6.4" id="q6.4-2" value="2" data-is-correct="1"></td>
+      <td><label for="q6.4-2">Прибор электромагнитной системы;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q6.4" id="q6.4-3" value="3" data-is-correct="0"></td>
+      <td><label for="q6.4-3">Прибор вибрационной системы;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q6.4" id="q6.4-4" value="4" data-is-correct="0"></td>
+      <td><label for="q6.4-4">Прибор переменного тока.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 6.5. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Нанесенный на шкале прибора знак
+		<figure><img src="files/P-kv.svg"><figcaption>Изображение на шкале прибора</figcaption></figure>
+        обозначает:
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q6.5" id="q6.5-1" value="1" data-is-correct="0"></td>
+      <td><label for="q6.5-1">Максимальный измеряемый ток 5 А;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q6.5" id="q6.5-2" value="2" data-is-correct="0"></td>
+      <td><label for="q6.5-2">Максимальное измеряемое напряжение 5000 В;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q6.5" id="q6.5-3" value="3" data-is-correct="1"></td>
+      <td><label for="q6.5-3">Изоляция прибора выдерживает 5 кВ;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q6.5" id="q6.5-4" value="4" data-is-correct="0"></td>
+      <td><label for="q6.5-4">Класс точности прибора 0,5.</label></td>
+    </tr>
+  </table>
+</article>
+<!-- Конец вопроса 6 -->
+</section>
+
+<section>
+<!-- Вопрос 7. Несинусоидальный ток. -->
+<article class="question-block">
+  <!-- Вопрос 7.1. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        На приведенных графиках I<sub>1m</sub>=I<sub>2m</sub>.
+        <figure><img src="files/sin-vd.svg"><figcaption>Графики токов</figcaption></figure>
+        Каково соотношение между действующими значениями токов?
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q7.1" id="q7.1-1" value="1" data-is-correct="0"></td>
+      <td><label for="q7.1-1">I<sub>1</sub>&gt;I<sub>2</sub>;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q7.1" id="q7.1-2" value="2" data-is-correct="1"></td>
+      <td><label for="q7.1-2">I<sub>1</sub>=I<sub>2</sub>;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q7.1" id="q7.1-3" value="3" data-is-correct="0"></td>
+      <td><label for="q7.1-3">I<sub>1</sub>&lt;I<sub>2</sub>;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q7.1" id="q7.1-4" value="4" data-is-correct="0"></td>
+      <td><label for="q7.1-4">Для ответа недостаточно данных, так как не задана частота тока.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 7.2. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Каково соотношение между амплитудным и действующим значением напряжения, представленного на графике?
+        <figure><img src="files/meander.svg"><figcaption>График напряжения</figcaption></figure>
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q7.2" id="q7.2-1" value="1" data-is-correct="0"></td>
+      <td><label for="q7.2-1">U=0,707 U<sub>m</sub>;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q7.2" id="q7.2-2" value="2" data-is-correct="0"></td>
+      <td><label for="q7.2-2">U=U<sub>m</sub>/2;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q7.2" id="q7.2-3" value="3" data-is-correct="1"></td>
+      <td><label for="q7.2-3">U=U<sub>m</sub>;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q7.2" id="q7.2-4" value="4" data-is-correct="0"></td>
+      <td><label for="q7.2-4">Для ответа недостаточно данных, так как неизвестно сопротивление нагрузки.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 7.3. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Какая форма напряжения (тока) характерна для выхода тиристорного регулятора?
+        <figure><img src="files/tyristor.svg"><figcaption>Графики напряжения</figcaption></figure>
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q7.3" id="q7.3-1" value="1" data-is-correct="1"></td>
+      <td><label for="q7.3-1">Приведенная на рисунке А;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q7.3" id="q7.3-2" value="2" data-is-correct="0"></td>
+      <td><label for="q7.3-2">Приведенная на рисунке Б;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q7.3" id="q7.3-3" value="3" data-is-correct="0"></td>
+      <td><label for="q7.3-3">Приведенная на рисунке В;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q7.3" id="q7.3-4" value="4" data-is-correct="0"></td>
+      <td><label for="q7.3-4">Для ответа недостаточно данных, так как неизвестен коэффициент мощности нагрузки.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 7.4. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Для какого из приведенных ниже графиков, действующе значение напряжения будет больше?
+        <figure><img src="files/meanderX3.svg"><figcaption>Графики напряжения</figcaption></figure>
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q7.4" id="q7.4-1" value="1" data-is-correct="0"></td>
+      <td><label for="q7.4-1">Для графика А;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q7.4" id="q7.4-2" value="2" data-is-correct="0"></td>
+      <td><label for="q7.4-2">Для графика Б;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q7.4" id="q7.4-3" value="3" data-is-correct="0"></td>
+      <td><label for="q7.4-3">Для графика В;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q7.4" id="q7.4-4" value="4" data-is-correct="1"></td>
+      <td><label for="q7.4-4">Действующее значение напряжения будет одинаковым.</label></td>
+    </tr>
+  </table>
+</article>
+<!-- Конец вопроса 7 -->
+</section>
+
+<section>
+<!-- Вопрос 8. Релейная схема. -->
+<article class="question-block">
+  <!-- Вопрос 8.1. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Как изменится напряжение на резисторе R3, при замыкании ключа K?
+        <figure><img src="files/key1.svg"><figcaption>Схема</figcaption></figure>
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q8.1" id="q8.1-1" value="1" data-is-correct="1"></td>
+      <td><label for="q8.1-1">Увеличится;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q8.1" id="q8.1-2" value="2" data-is-correct="0"></td>
+      <td><label for="q8.1-2">Уменьшится;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q8.1" id="q8.1-3" value="3" data-is-correct="0"></td>
+      <td><label for="q8.1-3">Не изменится;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q8.1" id="q8.1-4" value="4" data-is-correct="0"></td>
+      <td><label for="q8.1-4">Увеличится или уменьшится, в зависимости от величины сопротивления R1.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 8.2. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Как изменятся показания амперметра при замыкании ключа?
+        <figure><img src="files/key2.svg"><figcaption>Схема</figcaption></figure>
+		Резисторы R1, R2 и R3 имеют одинаковое сопротивление, сопротивлением вольтметра пренебречь.
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q8.2" id="q8.2-1" value="1" data-is-correct="0"></td>
+      <td><label for="q8.2-1">Уменьшатся в два раза;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q8.2" id="q8.2-2" value="2" data-is-correct="0"></td>
+      <td><label for="q8.2-2">Уменьшатся в три раза;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q8.2" id="q8.2-3" value="3" data-is-correct="0"></td>
+      <td><label for="q8.2-3">Не изменятся;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q8.2" id="q8.2-4" value="4" data-is-correct="1"></td>
+      <td><label for="q8.2-4">Увеличатся в три раза.</label></td>
+    </tr>
+  </table>
+</article>
+<!-- Конец вопроса 8 -->
+</section>
+
+<section>
+<!-- Вопрос 9. Трехфазный ток. -->
+<article class="question-block">
+  <!-- Вопрос 9.1. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Может ли ток в нулевом проводе четырёхпроводной цепи быть равным нулю при подключенной нагрузке?
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q9.1" id="q9.1-1" value="1" data-is-correct="1"></td>
+      <td><label for="q9.1-1">Может, при симмитричной нагрузке;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q9.1" id="q9.1-2" value="2" data-is-correct="0"></td>
+      <td><label for="q9.1-2">Не может;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q9.1" id="q9.1-3" value="3" data-is-correct="0"></td>
+      <td><label for="q9.1-3">Всегда равен нулю;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q9.1" id="q9.1-4" value="4" data-is-correct="0"></td>
+      <td><label for="q9.1-4">Всегда равен току в фазных проводниках.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 9.2. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Каков сдвиг фаз между токами в трёхфазной системе?
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q9.2" id="q9.2-1" value="1" data-is-correct="0"></td>
+      <td><label for="q9.2-1">Сдвиг фаз 90º;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q9.2" id="q9.2-2" value="2" data-is-correct="1"></td>
+      <td><label for="q9.2-2">Сдвиг фаз 120º;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q9.2" id="q9.2-3" value="3" data-is-correct="0"></td>
+      <td><label for="q9.2-3">Сдвиг фаз 145º;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q9.2" id="q9.2-4" value="4" data-is-correct="0"></td>
+      <td><label for="q9.2-4">Сдвиг фаз 180º.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 9.3. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Какой из вольтметров на схеме показывает линейное напряжение?
+		<figure><img src="files/f-l.svg"><figcaption>Схема</figcaption></figure>
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q9.3" id="q9.3-1" value="1" data-is-correct="0"></td>
+      <td><label for="q9.3-1">Линейное напряжение показывают вольтметры V1 и V2;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q9.3" id="q9.3-2" value="2" data-is-correct="0"></td>
+      <td><label for="q9.3-2">Линейное напряжение показывает вольтметр V3;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q9.3" id="q9.3-3" value="4" data-is-correct="0"></td>
+      <td><label for="q9.3-3">Ни один из вольтметров не показывает линейное напряжение;</label></td>
+    </tr>
+	<tr class="answer">
+      <td><input type="radio" name="q9.3" id="q9.3-4" value="4" data-is-correct="1"></td>
+      <td><label for="q9.3-4">Все вольтметры показывают линейное напряжение.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 9.4. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Какой из вольтметров на схеме показывает фазное напряжение?
+		<figure><img src="files/f-l.svg"><figcaption>Схема</figcaption></figure>
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q9.4" id="q9.4-1" value="1" data-is-correct="0"></td>
+      <td><label for="q9.4-1">Фазное напряжение показывают вольтметры V1 и V2;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q9.4" id="q9.4-2" value="2" data-is-correct="0"></td>
+      <td><label for="q9.4-2">Фазное напряжение показывает вольтметр V3;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q9.4" id="q9.4-3" value="4" data-is-correct="1"></td>
+      <td><label for="q9.4-3">Ни один из вольтметров не показывает фазное напряжение;</label></td>
+    </tr>
+	<tr class="answer">
+      <td><input type="radio" name="q9.4" id="q9.4-4" value="4" data-is-correct="0"></td>
+      <td><label for="q9.4-4">Все вольтметры показывают фазное напряжение.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 9.5. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Будут ли меняться линейные токи в четырехпроводной цепи при обрыве нулевого рабочего проводника?
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q9.5" id="q9.5-1" value="1" data-is-correct="0"></td>
+      <td><label for="q9.5-1">Нет, не будут;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q9.5" id="q9.5-2" value="2" data-is-correct="0"></td>
+      <td><label for="q9.5-2">Будут, если нагрузка симметричная;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q9.5" id="q9.5-3" value="4" data-is-correct="1"></td>
+      <td><label for="q9.5-3">Будут, если нагрузка несимметричная;</label></td>
+    </tr>
+	<tr class="answer">
+      <td><input type="radio" name="q9.5" id="q9.5-4" value="4" data-is-correct="0"></td>
+      <td><label for="q9.5-4">Будут меняться в любом случае.</label></td>
+    </tr>
+  </table>
+</article>
+<!-- Конец вопроса 9 -->
+</section>
+
+<section>
+<!-- Вопрос 10. Разные интересные вопросы. -->
+<article class="question-block">
+  <!-- Вопрос 10.1. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        При каком напряжении выгоднее передавать энергию в линии при заданной мощности?
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.1" id="q10.1-1" value="1" data-is-correct="0"></td>
+      <td><label for="q10.1-1">При пониженном;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.1" id="q10.1-2" value="2" data-is-correct="1"></td>
+      <td><label for="q10.1-2">При повышенном;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.1" id="q10.1-3" value="3" data-is-correct="0"></td>
+      <td><label for="q10.1-3">Безразлично;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.1" id="q10.1-4" value="4" data-is-correct="0"></td>
+      <td><label for="q10.1-4">Зависит от рода тока.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 10.2. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Каков характер движения электрических зарядов в проводнике при переменном токе?
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.2" id="q10.2-1" value="1" data-is-correct="0"></td>
+      <td><label for="q10.2-1">Вращательный;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.2" id="q10.2-2" value="2" data-is-correct="1"></td>
+      <td><label for="q10.2-2">Колебательный;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.2" id="q10.2-3" value="3" data-is-correct="0"></td>
+      <td><label for="q10.2-3">Поступательный;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.2" id="q10.2-4" value="4" data-is-correct="0"></td>
+      <td><label for="q10.2-4">Равноускоренный.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 10.3. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Чем принципиально отличается автотрансформатор от трансформатора?
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.3" id="q10.3-1" value="1" data-is-correct="0"></td>
+      <td><label for="q10.3-1">Малым коэффициентом трансформации;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.3" id="q10.3-2" value="2" data-is-correct="0"></td>
+      <td><label for="q10.3-2">Возможностью изменения коэффициента трансформации;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.3" id="q10.3-3" value="3" data-is-correct="1"></td>
+      <td><label for="q10.3-3">Электрическим соединением первичной в вторичной цепей;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.3" id="q10.3-4" value="4" data-is-correct="0"></td>
+      <td><label for="q10.3-4">Торообразным магнитопроводом.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 10.4. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Для металлического проводника с ростом температуры его сопротивление:
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.4" id="q10.4-1" value="1" data-is-correct="1"></td>
+      <td><label for="q10.4-1">Увеличивается;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.4" id="q10.4-2" value="2" data-is-correct="0"></td>
+      <td><label for="q10.4-2">Уменьшается;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.4" id="q10.4-3" value="3" data-is-correct="0"></td>
+      <td><label for="q10.4-3">Характер изменения сопротивления зависит от рода тока;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.4" id="q10.4-4" value="4" data-is-correct="0"></td>
+      <td><label for="q10.4-4">Сопротивление металлических проводников не зависит от температуры.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 10.5. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Нелинейные элементы, это:
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.5" id="q10.5-1" value="1" data-is-correct="0"></td>
+      <td><label for="q10.5-1">Элементы, которые включены в фазную цепь;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.5" id="q10.5-2" value="2" data-is-correct="1"></td>
+      <td><label for="q10.5-2">Элементы, сопротивление которых зависит от силы тока и напряжения;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.5" id="q10.5-3" value="3" data-is-correct="0"></td>
+      <td><label for="q10.5-3">Элементы, сопротивление которых не зависит от силы тока и напряжения;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.5" id="q10.5-4" value="4" data-is-correct="0"></td>
+      <td><label for="q10.5-4">Элементы, которые включены в электрическую цепь не последовательно.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 10.6. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        На какой режим работы расчитаны трансформаторы тока?
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.6" id="q10.6-1" value="1" data-is-correct="1"></td>
+      <td><label for="q10.6-1">Короткого замыкания;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.6" id="q10.6-2" value="2" data-is-correct="0"></td>
+      <td><label for="q10.6-2">Холостого хода;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.6" id="q10.6-3" value="3" data-is-correct="0"></td>
+      <td><label for="q10.6-3">Зависит от сечения проводов обмотки;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.6" id="q10.6-4" value="4" data-is-correct="0"></td>
+      <td><label for="q10.6-4">Трансформаторы тока являются теоретической абстракцией и их изготовление при текущем уровне технологий не представляется возможным.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 10.7. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Как изменится общая сила тока в цепи с тремя параллельно соединенными резисторами, если последовательно с одним их них включить такой же резистор?
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.7" id="q10.7-1" value="1" data-is-correct="0"></td>
+      <td><label for="q10.7-1">Не изменится;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.7" id="q10.7-2" value="2" data-is-correct="0"></td>
+      <td><label for="q10.7-2">Увеличится;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.7" id="q10.7-3" value="3" data-is-correct="1"></td>
+      <td><label for="q10.7-3">Уменьшится;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.7" id="q10.7-4" value="4" data-is-correct="0"></td>
+      <td><label for="q10.7-4">Зависит от сопротивления резистора.</label></td>
+    </tr>
+  </table>
+</article>
+
+<article class="question-block">
+  <!-- Вопрос 10.8. -->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        Во сколько раз изменится сопротивление провода, если его диаметр уменьшить в 2 раза?
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.8" id="q10.8-1" value="1" data-is-correct="0"></td>
+      <td><label for="q10.8-1">Уменьшится в 2 раза;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.8" id="q10.8-2" value="2" data-is-correct="0"></td>
+      <td><label for="q10.8-2">Увеличится в 2 раза;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.8" id="q10.8-3" value="3" data-is-correct="0"></td>
+      <td><label for="q10.8-3">Уменьшится в 4 раза;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="q10.8" id="q10.8-4" value="4" data-is-correct="1"></td>
+      <td><label for="q10.8-4">Увеличится в 4 раза.</label></td>
+    </tr>
+  </table>
+</article>
+<!-- Конец вопроса 10 -->
+</section>
+
+</main>
+
+<footer>
+  <div class="check">
+    <button class="general-button check-button" id="check-button" type="button">Проверить</button>
+	<button class="general-button print-button" id="print-button" type="button">Печатать</button>
+  </div>
+  <div class="resaults" id="resaults">
+    <hr>
+    При прохождении теста было дано <span id="resault-number">70</span>% правильных ответов.
+	<hr>
+    <button class="general-button repeat-button" id="repeat-button" type="button">Повторить тестирование</button>
+  </div>
+</footer>
+
+</body>
+</html>
+
+<!--
+<article class="question-block">
+  <!- - Вопрос X.Y. - ->
+  <table>
+    <tr>
+      <td class="question" colspan="2">
+        xxx
+        <figure><img src="files/sin.svg"><figcaption>yyy</figcaption></figure>
+        xxx:
+      </td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="qX.Y" id="qX.Y-1" value="1" data-is-correct="0"></td>
+      <td><label for="qX.Y-1">zzz;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="qX.Y" id="qX.Y-2" value="2" data-is-correct="0"></td>
+      <td><label for="qX.Y-2">zzz;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="qX.Y" id="qX.Y-3" value="3" data-is-correct="0"></td>
+      <td><label for="qX.Y-3">zzz;</label></td>
+    </tr>
+    <tr class="answer">
+      <td><input type="radio" name="qX.Y" id="qX.Y-4" value="4" data-is-correct="0"></td>
+      <td><label for="qX.Y-4">zzz.</label></td>
+    </tr>
+  </table>
+</article>
+
+
+<section>
+<!- - Вопрос 1. Параметры синусоидального тока. - ->
+<!- - Конец вопроса 1 - ->
+</section>
+-->
